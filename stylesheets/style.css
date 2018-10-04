@@ -1,0 +1,121 @@
+body {
+    margin: 0;
+    font: 14px Helvetica, Arial, sans-serif;
+}
+
+#container {
+    width: 100%;
+    margin: 20px auto;
+    max-width: 600px;
+    background-color: #4e78b1;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 5px rgba(0,0,0, 0.5)
+}
+#searchbar {
+    width: 100%;
+}
+#searchbar input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border-width: 0;
+}
+
+#results {
+    margin: 15px auto;
+    background-color: white;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    min-height: 30px;
+}
+
+.loading {
+    position: absolute;
+    z-index: 2;
+    background: rgba(0,0,0,.8);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    color:  white;
+    font-weight: bold;
+}
+
+.no-results {
+    width: 100%;
+    padding: 10px 0;
+    color: grey;
+    text-align: center;
+}
+
+.result {
+    padding: 5px 10px;
+    margin-top: 5px;
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+
+.result:hover {
+    background: #eeeeee;
+}
+
+.result .title {
+    font-weight: 700;
+}
+
+.result:not(:last-child)::after {
+    content: "";
+    background: linear-gradient(to left, white, #cccccc 50%, white);
+    width: 100%;
+    height: 1px;
+    float: left;
+    margin-top: 6px;
+}
+
+#pagination {
+    display: flex;
+    flex-direction: row;
+    color: white;
+}
+
+#page-count {
+    flex-grow: 1;
+    text-align: center;
+    padding: 10px;
+}
+
+#next, #prev {
+    width: 75px;
+    text-align: center;
+    background-color: white;
+    color: #4e78b1;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#prev.disabled, #next.disabled {
+    pointer-events: none;
+    opacity: .5;
+}
+
+@media only screen and (max-width: 600px) {
+    #container {
+        margin: 0;
+        border-radius: 0;
+        padding: 5px;
+        width: calc(100% - 10px);
+        min-height: calc(100% - 10px);
+    }
+
+    #results {
+        margin: 5px auto;
+    }
+}
